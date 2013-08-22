@@ -94,7 +94,7 @@ void AnimatedLabel::init()
 void AnimatedLabel::innerUpdate()
 {	
 	float finalSpriteHeight = mFinalSprite.getGlobalBounds().height;
-	std::cout << mTextSprite.getGlobalBounds().height << std::endl;
+	//std::cout << mTextSprite.getGlobalBounds().height << std::endl;
 	float finalSpriteWidth = mFinalSprite.getGlobalBounds().width;
 	float verticalPosition = (finalSpriteHeight-
 							  (mTextSprite.getGlobalBounds().height+
