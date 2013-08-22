@@ -11,7 +11,6 @@ History::History(std::string filepath)
 {
 	std::ifstream file(mFilepath.c_str());
 	
-	
 	if (file) {
 		std::string line;
 		
@@ -52,9 +51,6 @@ History::~History()
 	std::ofstream file(mFilepath.c_str());
 	
 	if (file) {
-		
-		
-		
 		for(it = mData.begin(); it != mData.end() ; ++it)
 			file << (*it).value << " " << (*it).path << std::endl;
 		
@@ -76,8 +72,9 @@ void History::setTime(std::string trackpath, float value)
 {
 	for(it = mData.begin(); it != mData.end() ; ++it) {
 		if ((*it).path == trackpath) {
-			(*it).value = value;
-			return;
+			//(*it).value = value;
+			it=mData.erase(it);
+			break;
 		}
 	}
 	
@@ -98,5 +95,3 @@ std::string History::getLast()
 	
 	return mData.at(mData.size()-1).path;
 }
-
-

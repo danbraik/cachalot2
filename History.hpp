@@ -18,7 +18,7 @@ class History
 				float value;
 		};
 		
-		static const int MAX_TRACK = 1024;
+		static const size_t MAX_TRACK = 1024;
 		const std::string mFilepath;
 		std::vector<Track> mData;
 		std::vector<Track>::iterator it;
