@@ -1,4 +1,5 @@
 #include "AnimatedLabel.hpp"
+#include <iostream>
 
 using namespace gui;
 
@@ -45,6 +46,7 @@ void AnimatedLabel::setFont(const sf::Font &font)
 void AnimatedLabel::setString(const sf::String &string)
 {
 	mTextSprite.setString(string);
+	mTextSprite.setCharacterSize(40);
 	innerUpdate();
 }
 
@@ -92,9 +94,13 @@ void AnimatedLabel::init()
 void AnimatedLabel::innerUpdate()
 {	
 	float finalSpriteHeight = mFinalSprite.getGlobalBounds().height;
+	std::cout << mTextSprite.getGlobalBounds().height << std::endl;
 	float finalSpriteWidth = mFinalSprite.getGlobalBounds().width;
-	float verticalPosition = ((finalSpriteHeight - 
-							 mTextSprite.getGlobalBounds().height * 1.3f ) / 2);
+	float verticalPosition = (finalSpriteHeight-
+							  (mTextSprite.getGlobalBounds().height+
+							   mTextSprite.getCharacterSize()))/2;
+			//(finalSpriteHeight + 
+				//			 mTextSprite.getGlobalBounds().height /* 1.3f*/ ) / 2;
 	mTextSprite.setPosition(static_cast<int>(mHorizontalPosition),
 							static_cast<int>(verticalPosition));
 	
